@@ -18,5 +18,10 @@
             <artifactId>cs-file-store.service</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.sxau.cs</groupId>
+            <artifactId>cs-file-store-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
