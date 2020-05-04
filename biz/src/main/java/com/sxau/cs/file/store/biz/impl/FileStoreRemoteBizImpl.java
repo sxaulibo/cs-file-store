@@ -21,7 +21,7 @@ public class FileStoreRemoteBizImpl implements FileStoreRemoteBiz {
 
     @Override
     public FileUploadResponse upload(FileUploadRequest fileUploadRequest) {
-        FileUploadResponse fileUploadResponse = new FileUploadResponse() ();
+        FileUploadResponse fileUploadResponse = new FileUploadResponse();
         //保存到目标位置
         MultipartFile file = fileUploadRequest.getFile();
         String path = BENEATH + file.getOriginalFilename();
