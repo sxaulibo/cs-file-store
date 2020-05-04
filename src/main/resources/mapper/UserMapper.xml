@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+
+        <insert id="insertFile" parameterType="com.sxau.homework.service.bean.FileInfo">
+            INSERT INTO fileInfo_tbl (fileInfo_fileCode,fileInfo_fileName,fileInfo_path)
+            VALUES (#{fileCode},#{fileName},#{path})
+        </insert>
+
+        <update id="deleteByFileCode" parameterType="String">
+             DELETE
+             FROM fileInfo_tbl
+             WHERE fileInfo_fileCode = #{fileCode2}
+        </update>
+
+        <select id="queryByFileCode" parameterType="String" resultType="com.sxau.homework.service.bean.FileInfo">
+             SELECT fileInfo_id as "id",
+             fileInfo_fileCode as "fileCode",
+             fileInfo_fileName as "fileName",
+             fileInfo_path as "path"
+             FROM fileInfo_tbl WHERE fileInfo_fileCode =#{fileInfo}
+        </select>
+
+</mapper>
