@@ -11,7 +11,7 @@ import com.sxau.cs.file.store.service.impl.FileServiceImpl;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -65,6 +65,28 @@ public class FileStoreRemoteBizImpl implements FileStoreRemoteBiz {
 
     @Override
     public FileDownloadResponse download(FileDownloadRequest fileDownloadRequest) {
-        return null;
+        FileDownloadResponse fileDownloadResponse = new FileDownloadResponse();
+        String fileCode = fileDownloadRequest.getFileCode();
+
+        FileService fileService = new FileServiceImpl();
+        FileInfo fileInfoBean = fileService.queryInfoByFileCode(fileCode);
+        System.out.println(fileInfoBean.getPath());
+        if (fileInfoBean.getPath().equals("")) {
+            throw new RuntimeException("文件找不到");
+        }
+        File file1 = new File(fileInfoBean.getPath());
+        FileInputStream fileInputStream;
+        //限制上传100M的文件
+        byte[] fileByteArray = new byte[104857600];
+        try {
+            fileInputStream = new FileInputStream(file1);
+            fileByteArray = fileInputStream.readAllBytes();
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("下载失败");
+        }
+        fileDownloadResponse.setFileByteArray(fileByteArray);
+        return fileDownloadResponse;
     }
 }
