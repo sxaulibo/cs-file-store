@@ -1,5 +1,8 @@
 package com.sxau.cs.file.store.provider.controller;
 
+import com.sxau.cs.file.store.service.FileService;
+import com.sxau.cs.file.store.service.impl.FileServiceImpl;
+import com.sxau.cs.file.store.service.beans.FileInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
