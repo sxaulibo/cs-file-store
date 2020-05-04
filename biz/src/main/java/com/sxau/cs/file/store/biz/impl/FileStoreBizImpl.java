@@ -4,7 +4,7 @@ import com.sxau.cs.file.store.api.common.model.request.FileDownloadRequest;
 import com.sxau.cs.file.store.api.common.model.request.FileUploadRequest;
 import com.sxau.cs.file.store.api.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.store.api.common.model.response.FileUploadResponse;
-import com.sxau.cs.file.store.biz.FileStoreRemoteBiz;
+import com.sxau.cs.file.store.biz.FileStoreBiz;
 import com.sxau.cs.file.store.service.FileService;
 import com.sxau.cs.file.store.service.beans.FileInfo;
 import com.sxau.cs.file.store.service.impl.FileServiceImpl;
@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class FileStoreRemoteBizImpl implements FileStoreRemoteBiz {
+public class FileStoreBizImpl implements FileStoreBiz {
     //文件存储的总路径
     private final static String BENEATH = "C:\\uploaded\\";
 

@@ -5,7 +5,7 @@ import com.sxau.cs.file.store.api.common.model.request.FileUploadRequest;
 import com.sxau.cs.file.store.api.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.store.api.common.model.response.FileUploadResponse;
 
-public interface FileStoreRemoteBiz {
+public interface FileStoreBiz {
     /**
      * 文件上传
      *

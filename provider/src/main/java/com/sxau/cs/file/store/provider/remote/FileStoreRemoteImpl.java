@@ -5,22 +5,22 @@ import com.sxau.cs.file.store.api.common.model.request.FileUploadRequest;
 import com.sxau.cs.file.store.api.common.model.response.FileDownloadResponse;
 import com.sxau.cs.file.store.api.common.model.response.FileUploadResponse;
 import com.sxau.cs.file.store.api.remote.FileStoreRemote;
-import com.sxau.cs.file.store.biz.FileStoreRemoteBiz;
+import com.sxau.cs.file.store.biz.FileStoreBiz;
 
 import javax.annotation.Resource;
 
 public class FileStoreRemoteImpl implements FileStoreRemote {
 
     @Resource
-    private FileStoreRemoteBiz fileStoreRemoteBiz;
+    private FileStoreBiz fileStoreBiz;
 
     @Override
     public FileUploadResponse upload(FileUploadRequest fileUploadRequest) {
-        return fileStoreRemoteBiz.upload(fileUploadRequest);
+        return fileStoreBiz.upload(fileUploadRequest);
     }
 
     @Override
     public FileDownloadResponse download(FileDownloadRequest fileDownloadRequest) {
-        return fileStoreRemoteBiz.download(fileDownloadRequest);
+        return fileStoreBiz.download(fileDownloadRequest);
     }
 }
